@@ -1,0 +1,100 @@
+import java.util.ArrayList;
+
+public class Test {
+
+	public static void main(String[] args) {
+		ArrayList<Integer> list = new ArrayList<Integer>();
+		list.add(1);
+		list.add(2);
+		list.add(3);
+		list.add(4);
+		list.add(1);
+		ArrayList<Integer> list2 = new ArrayList<Integer>();
+		list2.add(5);
+		list2.add(4);
+		list2.add(3);
+		list2.add(4);
+		list2.add(1);
+		int m = 0;
+		ArrayList<Integer> temp = new ArrayList<Integer>();
+		for (int i=0;i<list.size();i++) {
+			if (list.get(i)==list2.get(i)) {
+				if (temp.isEmpty()) {
+					temp.add(list.get(i));
+					m++;
+				}
+				else if(temp.get(temp.size()-1)<list.get(i)) {
+					temp.add(list.get(i));
+					m++;
+				}
+			}
+		}
+		System.out.println(m);
+}
+}
+
+/*import java.io.*;
+import java.math.*;
+import java.security.*;
+import java.text.*;
+import java.util.*;
+import java.util.concurrent.*;
+import java.util.function.*;
+import java.util.regex.*;
+import java.util.stream.*;
+import static java.util.stream.Collectors.joining;
+import static java.util.stream.Collectors.toList;
+
+
+
+class Result {
+
+     * Complete the 'countHighlyProfitableMonths' function below.
+     *
+     * The function is expected to return an INTEGER.
+     * The function accepts following parameters:
+     *  1. INTEGER_ARRAY stockPrices
+     *  2. INTEGER k
+
+
+    public static int countHighlyProfitableMonths(List<Integer> stockPrices, int k) {
+        k=0;
+    for (int i=0;i<stockPrices.size()-1;i++){
+        while (stockPrices.get(i)<stockPrices.get(i+1)&&i<stockPrices.size()-2){
+            i++;
+        }
+        k++;
+    }
+    return k;
+    }
+}
+public class Solution {
+    public static void main(String[] args) throws IOException {
+        BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(System.in));
+        BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(System.getenv("OUTPUT_PATH")));
+
+        int stockPricesCount = Integer.parseInt(bufferedReader.readLine().trim());
+
+        List<Integer> stockPrices = IntStream.range(0, stockPricesCount).mapToObj(i -> {
+            try {
+                return bufferedReader.readLine().replaceAll("\\s+$", "");
+            } catch (IOException ex) {
+                throw new RuntimeException(ex);
+            }
+        })
+            .map(String::trim)
+            .map(Integer::parseInt)
+            .collect(toList());
+
+        int k = Integer.parseInt(bufferedReader.readLine().trim());
+
+        int result = Result.countHighlyProfitableMonths(stockPrices, k);
+
+        bufferedWriter.write(String.valueOf(result));
+        bufferedWriter.newLine();
+
+        bufferedReader.close();
+        bufferedWriter.close();
+    }
+}
+*/
